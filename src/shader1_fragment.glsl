@@ -4,28 +4,35 @@ precision highp float;
 uniform float time;
 uniform vec2 resolution;
 
-uniform sampler2D noise;
+in VertexData
+{
+    vec4 v_position;
+    vec3 v_normal;
+    vec2 v_texcoord;
+} inData;
 
 out vec4 color;
 
+const float PI = 3.14159;
+
 void main()
 {
-    vec2 uv0 = gl_FragCoord.xy/resolution;
-    vec2 uv = uv0;
-    uv = fract(uv+vec2(0.,-time*2.));
-    color = texture(noise,uv)+vec4(-uv0.y);
-    if(color.r >= 0.4)
+    vec2 uv = inData.v_position.xy;
+    
+    float r = length(uv);
+    float theta = atan(uv.y/uv.x);
+    if(uv.x<0.)
     {
-        color = vec4(1.);
+        theta += PI;
     }
-    else
-    {
-        color = vec4(vec3(0.),1.);
-    }
-    if(color.r == 1.)
-    {
-        uv = fract(uv+vec2(0.,-time*2.));
-        color = texture(noise,uv)+vec4(-uv0.y);
-        color = vec4(1.,color.r-0.2,0.,1.);
-    }
+    theta += r*5.;
+    theta -= time*10.;
+    uv = r*vec2(cos(theta),sin(theta));
+    
+    
+    color = vec4(uv,0.,1.);
+    
+    float l = length(uv-vec2(0.5));
+    color += vec4(l/2.0);
+    
 }
