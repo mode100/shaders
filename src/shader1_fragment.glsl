@@ -13,7 +13,7 @@ in VertexData
 
 out vec4 color;
 
-const float PI = 3.14159;
+#define PI 3.14159
 
 void main()
 {
