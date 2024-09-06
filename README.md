@@ -7,4 +7,5 @@
 
 ### Shader2(Smoothing Shader)
 デフォルト、幅0.075で境界をスムージング
+
 ![](videos/shader2_cellular_default.gif) ![](videos/shader2_cellular_smoothstep_0075.gif)
