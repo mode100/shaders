@@ -6,4 +6,4 @@
 ![](videos/shader1.gif)
 
 ### Shader2(Smoothing Shader)
-![](videos/shader1.gif) ![](videos/shader1.gif)
+![](videos/shader2_cellular_default.gif) ![](videos/shader2_cellular_smoothstep_0075.gif)
