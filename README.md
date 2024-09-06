@@ -6,3 +6,4 @@
 ![](videos/shader1.gif)
 
 ### Shader2(Smoothing Shader)
+| ![](videos/shader1.gif) | ![](videos/shader1.gif) |
