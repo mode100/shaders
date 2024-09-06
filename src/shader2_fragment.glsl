@@ -58,8 +58,7 @@ vec4 smoothedTexture(sampler2D tex,vec2 uv,float len)
         col1 = texture(tex,vec2(x1,y2));
         col2 = texture(tex,vec2(x2,y2));
         vec4 mcol2 = mix(col1,col2,mysmoothstep(ratex));
-        vec4 mmcol = mix(mcol1,mcol2,mysmoothstep(ratey));
-        return mmcol;
+        return mix(mcol1,mcol2,mysmoothstep(ratey));
     }
     if(0.5-abs(uv.x-0.5)<=len/2. || 0.5-abs(uv.y-0.5)<=len/2.)
     {
